@@ -1,34 +1,23 @@
 <template>
-    <div class="homeheader">
-        <div class="homeheader-left" @click="city" ><van-icon class="icon" name="add-o" size="80px"/></div>
-        <div class="homeheader-center">荆门</div>
+    <div class="header">
+        <div class="header-left" ><van-icon class="icon" name="add-o" size="80px"/></div>
+        <div class="header-center">荆门</div>
     </div>
 </template>
 
-<script>
-export default {
-    name:"HomeHeader",
-    methods:{
-        city(){
-            this.$router.push('City')
-        }
-    }
-}
-</script>
-
 <style scoped>
-    .homeheader{
-        width:99%;
+    .header{
+        width:100%;
         height:130px;
         display: flex;
         justify-content: flex-start;
     }
-    .homeheader-left{
+    .header-left{
         width:80px;
         height:130px;
         margin-left:20px;
     }
-    .homeheader-center{
+    .header-center{
         width:100px;
         height:130px;
         font-size: 50px;

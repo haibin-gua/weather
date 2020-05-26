@@ -1,9 +1,11 @@
 <template>
     <div class="homeheader">
-        <home-header></home-header>
-        <home-content></home-content>
-        <home-today></home-today>
-        <home-future></home-future>
+        <v-touch v-on:swipeleft="swiperleft" class="wrapper"> 
+            <home-header></home-header>
+            <home-content></home-content>
+            <home-today></home-today>
+            <home-future></home-future>
+        </v-touch>
     </div>
 </template>
 
@@ -19,6 +21,11 @@ export default {
         HomeContent,
         HomeToday,
         HomeFuture
+    },
+    methods:{
+    swiperleft: function () { //左滑切换到details页
+      this.$router.push('Details');
+    }
     }
 }
 </script>
