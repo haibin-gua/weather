@@ -9,6 +9,10 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 import echarts from 'echarts'
 import  VueTouch from 'vue-touch'
+import axios from 'axios'
+Vue.prototype.$http = axios.create({
+  baseURL:'https://free-api.heweather.net/s6/'
+})
 Vue.use(VueTouch,{name:'v-touch'})
 VueTouch.config.swipe = {
   threshold:50  //设置左右滑动的距离

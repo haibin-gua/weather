@@ -5,11 +5,11 @@
             <div class="content-left-bottom"><van-icon name="replay" />刷新一下</div>
         </div>
         <div class="content-right">
-            <span>20</span><span>℃</span>
-            <p style="font-size:50px;text-align:center">多云</p>
+            <span>{{content.tmp}}</span><span>℃</span>
+            <p style="font-size:50px;text-align:center">{{content.cond_txt}}</p>
             <div class="wrapper">
-                <p>风力：西北风</p>
-                <p>空气质量：良好</p>
+                <p>风力：{{content.wind_dir}} {{content.wind_sc}}级</p>
+                <p>空气质量：{{qlty}}</p>
                 <p>5月25日 星期一</p>
             </div>
         </div>
@@ -18,7 +18,11 @@
 
 <script>
 export default {
-    
+    name:"HomeContent",
+    props:{
+        content:Object,
+        qlty:String
+    }
 }
 </script>
 

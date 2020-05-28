@@ -2,10 +2,10 @@
     <div class="today">
         <div class="today-top">今日24小时天气情况</div>
         <div class="today-bottom">
-            <div class="today-bottom-item" v-for="item of weather" :key="item.id">
-                <p>{{item.time}}</p>
-                <p>{{item.fine}}</p>
-                <p>{{item.temperature}}℃</p>
+            <div class="today-bottom-item" v-for="(item,index) in hourly" :key="index">
+                <p></p>
+                <p>{{item.tmp}}</p>
+                <p>{{item.tmp}}℃</p>
             </div>
         </div>
     </div>    
@@ -14,50 +14,8 @@
 <script>
 export default {
     name:"HomeToday",
-    data(){
-        return{
-            weather:[{
-            id:'0001',
-            time:'16:00',
-            fine:'晴',
-            temperature:'30'
-        },{
-            id:'0002',
-            time:'16:00',
-            fine:'晴',
-            temperature:'30'
-        },{
-            id:'0003',
-            time:'16:00',
-            fine:'晴',
-            temperature:'30'
-        },{
-            id:'0004',
-            time:'16:00',
-            fine:'晴',
-            temperature:'30'
-        },{
-            id:'0005',
-            time:'16:00',
-            fine:'晴',
-            temperature:'30'
-        },{
-            id:'0006',
-            time:'16:00',
-            fine:'晴',
-            temperature:'30'
-        },{
-            id:'0007',
-            time:'16:00',
-            fine:'晴',
-            temperature:'30'
-        },{
-            id:'0008',
-            time:'16:00',
-            fine:'晴',
-            temperature:'30'
-        }]
-        }
+    props:{
+        hourly:Array
     }
 }
 </script>

@@ -8,38 +8,62 @@
 <script>
 export default {
    name:"HomeFuture",
-   data(){
-       return{
-
-       }
-   },
    methods:{
 	  myEcharts(){
 		  // 基于准备好的dom，初始化echarts实例
 		  var myChart = this.$echarts.init(document.getElementById('main'));
-
 		  // 指定图表的配置项和数据
 		  var option = {
     xAxis: {
         type: 'category',
-        data: ['5.26', '5.27', '5.28', '5.29', '5.30', '5.31', '6.1']
+        axisLabel:{
+            textStyle:{
+                fontSize:20
+            }
+        },
+        data: []
     },
     yAxis: {
-        type: 'value'
+        type: 'value',
+        axisLabel:{
+            textStyle:{
+                fontSize:20
+            }
+        },
     },
     series: [{
-        data: [21, 22, 23, 24, 25, 26, 27],
+        data: [],
         type: 'line'
     }]
 };
+//异步加载数据
+ this.$http.get('weather/forecast?location=beijing&key=77a4db6891a64ef293bf9c03c57aebf5')
+                .then(res=>{
+                var xdata = [],ydata = [];
+                for(let i = 0;i<res.data.HeWeather6[0].daily_forecast.length;i++){
+                    xdata.push(res.data.HeWeather6[0].daily_forecast[i].date);
+                    ydata.push(res.data.HeWeather6[0].daily_forecast[i].tmp_max);
+                }
+                console.log(ydata)
+                //填入数据
+                myChart.setOption({
+                    xAxis: {
+                        data: xdata
+                    },
+                    series: [{
+                        itemStyle : { normal: {label : {show: true}}},
+                        data: ydata
+                    }]
+                });
+                })  
 
 		  // 使用刚指定的配置项和数据显示图表。
 		  myChart.setOption(option);
 		  }
   },
   mounted() {
-  	this.myEcharts();
-  }
+      this.myEcharts();
+  },
 }
 </script>
 
