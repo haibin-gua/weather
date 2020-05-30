@@ -1,8 +1,8 @@
 <template>
     <div class="homecontent">
         <div class="content-left">
-            <div class="content-left-top"><van-icon class="content-left-icon" name="like-o" size="200px"/></div>
-            <div class="content-left-bottom"><van-icon name="replay" />刷新一下</div>
+            <div class="content-left-top"><img :src="imgUrl"></div>
+            <div class="content-left-bottom" @click="refresh"><van-icon name="replay" />刷新一下</div>
         </div>
         <div class="content-right">
             <span>{{content.tmp}}</span><span>℃</span>
@@ -10,7 +10,7 @@
             <div class="wrapper">
                 <p>风力：{{content.wind_dir}} {{content.wind_sc}}级</p>
                 <p>空气质量：{{qlty}}</p>
-                <p>5月25日 星期一</p>
+                <p>{{$moment(time).format('MMMMDo dddd')}}</p>
             </div>
         </div>
     </div>
@@ -21,7 +21,18 @@ export default {
     name:"HomeContent",
     props:{
         content:Object,
-        qlty:String
+        qlty:String,
+        time:String
+    },
+    computed:{
+        imgUrl:function(){
+            return 'static/cond-icon-heweather/'+this.content.cond_code+'.png'
+        }
+    },
+    methods:{
+        refresh:function(){
+            this.$router.go(0)  //下拉刷新重新加载页面发送请求
+        }
     }
 }
 </script>
@@ -40,6 +51,11 @@ export default {
     .content-left-top{
         width:100%;
         height:70%;
+    }
+    .content-left-top img{
+        width:280px;
+        height:280px;
+        margin-left:30px;
     }
     .content-left-icon{
         margin-top:20px;

@@ -2,26 +2,24 @@
     <div class="exponent">
         <div class="exponent-top">今日生活指数</div>
         <div class="exponent-bottom">
-            <div><van-icon name="fire-o" />紫外线很强</div>
-            <div><van-icon name="fire-o" />紫外线很强</div>
-            <div><van-icon name="fire-o" />紫外线很强</div>
-            <div><van-icon name="fire-o" />紫外线很强</div>
-            <div><van-icon name="fire-o" />紫外线很强</div>
-            <div><van-icon name="fire-o" />紫外线很强</div>
+            <div v-for="item of exponent" :key=item.type>{{item.txt}}</div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name:"DetailsExponent"
+    name:"DetailsExponent",
+    props:{
+        exponent:Array
+    }
 }
 </script>
 
 <style scoped>
     .exponent{
         width:100%;
-        height:550px;
+        height:700px;
     }
     .exponent-top{
         width:40%;
@@ -34,6 +32,7 @@ export default {
         height:480px;
         display: flex;
         flex-wrap: wrap;
+        font-size: 32px;
     }
     .exponent-bottom div{
         width:49%;

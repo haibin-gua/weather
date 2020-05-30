@@ -41,17 +41,16 @@ export default {
                 .then(res=>{
                 var xdata = [],ydata = [];
                 for(let i = 0;i<res.data.HeWeather6[0].daily_forecast.length;i++){
-                    xdata.push(res.data.HeWeather6[0].daily_forecast[i].date);
+                    xdata.push(this.$moment(res.data.HeWeather6[0].daily_forecast[i].date).format('MM-DD')); //使用moment将请求的时间格式化
                     ydata.push(res.data.HeWeather6[0].daily_forecast[i].tmp_max);
                 }
-                console.log(ydata)
                 //填入数据
                 myChart.setOption({
                     xAxis: {
                         data: xdata
                     },
                     series: [{
-                        itemStyle : { normal: {label : {show: true}}},
+                        itemStyle : { normal: {label : {show: true,fontSize:25}}},
                         data: ydata
                     }]
                 });
@@ -71,7 +70,6 @@ export default {
     .future{
         width:100%;
         height:450px;
-        border:1px solid pink;
         margin-top:40px;
     }
     .future-top{
@@ -79,6 +77,6 @@ export default {
         height:30px;
         text-align: center;
         font-size: 30px;
-        border-bottom:1px solid red;
+        border-bottom:1px solid black;
     }
 </style>

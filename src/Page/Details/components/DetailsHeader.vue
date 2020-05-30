@@ -1,9 +1,23 @@
 <template>
     <div class="header">
-        <div class="header-left" ><van-icon class="icon" name="add-o" size="80px"/></div>
-        <div class="header-center">荆门</div>
+        <div class="header-left" @click="back"><van-icon name="arrow-left" size="80px"/></div>
+        <div class="header-center">{{city}}</div>
     </div>
 </template>
+
+<script>
+export default {
+    name:'DetailsHeader',
+    props:{
+        city:String
+    },
+    methods:{
+        back(){
+            this.$router.push('Home')
+        }
+    }
+}
+</script>
 
 <style scoped>
     .header{
@@ -14,8 +28,9 @@
     }
     .header-left{
         width:80px;
-        height:130px;
+        height:80px;
         margin-left:20px;
+        margin-top:20px;
     }
     .header-center{
         width:100px;
