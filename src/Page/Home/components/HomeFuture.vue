@@ -37,7 +37,7 @@ export default {
     }]
 };
 //异步加载数据
- this.$http.get('weather/forecast?location=beijing&key=77a4db6891a64ef293bf9c03c57aebf5')
+ this.$http.get('weather/forecast?key=77a4db6891a64ef293bf9c03c57aebf5&location='+this.$store.state.city)
                 .then(res=>{
                 var xdata = [],ydata = [];
                 for(let i = 0;i<res.data.HeWeather6[0].daily_forecast.length;i++){

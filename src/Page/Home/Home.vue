@@ -47,23 +47,23 @@ export default {
         this.isLoading = false;
         this.$router.go(0)  //下拉刷新重新加载页面发送请求
       }, 1000);
-    }
     },
-    created(){
-            this.$http.get('weather/now?location=auto_ip&key=77a4db6891a64ef293bf9c03c57aebf5')
+    },
+    mounted(){
+            this.$http.get('weather/now?key=77a4db6891a64ef293bf9c03c57aebf5&location='+this.$store.state.city)
                 .then(res=>{
                     this.content = res.data.HeWeather6[0].now
                     this.time = res.data.HeWeather6[0].update.loc
                 }),
-            this.$http.get('air/now?location=auto_ip&key=77a4db6891a64ef293bf9c03c57aebf5')
+            this.$http.get('air/now?key=77a4db6891a64ef293bf9c03c57aebf5&location='+this.$store.state.city)
                 .then(res=>{
                     this.qlty = res.data.HeWeather6[0].air_now_city.qlty
                 }),
-            this.$http.get('weather/hourly?location=auto_ip&key=77a4db6891a64ef293bf9c03c57aebf5')
+            this.$http.get('weather/hourly?key=77a4db6891a64ef293bf9c03c57aebf5&location='+this.$store.state.city)
                 .then(res=>{
                     this.hourly = res.data.HeWeather6[0].hourly
             }),
-            this.$http.get('weather/now?location=auto_ip&key=77a4db6891a64ef293bf9c03c57aebf5')
+            this.$http.get('weather/now?key=77a4db6891a64ef293bf9c03c57aebf5&location='+this.$store.state.city)
                 .then(res=>{
                     this.header = res.data.HeWeather6[0].basic.location
                 })

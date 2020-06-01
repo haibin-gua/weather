@@ -10,6 +10,7 @@ import 'vant/lib/index.css';
 import echarts from 'echarts'
 import  VueTouch from 'vue-touch'
 import axios from 'axios'
+import store from '../src/vuex/store'  //引入store.js
 import moment from 'moment' // 导入文件
 moment.locale('zh-cn')//moment汉化
  
@@ -35,6 +36,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,//相当于store:store,注册后，子组件中可以使用this.$store访问
   components: { App },
   template: '<App/>'
 })

@@ -17,6 +17,7 @@ export default {
     name:"Details",
     data(){
         return{
+            details:'',
             exponent:[],
             data:{},
             data2:{},
@@ -33,19 +34,18 @@ export default {
         this.$router.push('/Home');
         }
     },
-    created(){
-        this.$http.get('weather/lifestyle?location=auto_ip&key=77a4db6891a64ef293bf9c03c57aebf5')
+    mounted(){
+        this.$http.get('weather/lifestyle?key=77a4db6891a64ef293bf9c03c57aebf5&location=beijing')
             .then(res=>{
                 this.exponent = res.data.HeWeather6[0].lifestyle
                 this.city = res.data.HeWeather6[0].basic.location
             }),
-        this.$http.get('weather/now?location=auto_ip&key=77a4db6891a64ef293bf9c03c57aebf5')
+        this.$http.get('weather/now?key=77a4db6891a64ef293bf9c03c57aebf5&location='+this.$store.state.city)
             .then(res=>{
                 this.data = res.data.HeWeather6[0].now
             }),
-        this.$http.get('weather/forecast?location=auto_ip&key=77a4db6891a64ef293bf9c03c57aebf5')
+        this.$http.get('weather/forecast?key=77a4db6891a64ef293bf9c03c57aebf5&location='+this.$store.state.city)
             .then(res=>{
-                console.log(res.data)
                 this.data2 = res.data.HeWeather6[0].daily_forecast[0]
             })
     }
