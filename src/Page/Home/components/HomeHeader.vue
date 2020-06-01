@@ -1,6 +1,6 @@
 <template>
     <div class="homeheader">
-         <div class="homeheader-left" is-link @click="showPopup"><van-icon name="exchange" size="80px"/></div>
+         <div class="homeheader-left" is-link @click="showPopup"><van-icon name="exchange" size="60px"/></div>
             <van-popup
             v-model="show"
             position="bottom">
@@ -74,10 +74,10 @@ export default {
         width:300px;
         height:130px;
         text-align: center;
-        font-size: 50px;
+        font-size: 60px;
         line-height: 50px;
-        margin-left:140px;
         line-height: 130px;
+        margin-left:140px;
     }
     .icon{
         line-height: 130px;

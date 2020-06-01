@@ -6,7 +6,7 @@
         </div>
         <div class="content-right">
             <span>{{content.tmp}}</span><span>℃</span>
-            <p style="font-size:50px;text-align:center">{{content.cond_txt}}</p>
+            <p style="font-size:40px;text-align:center">{{content.cond_txt}}</p>
             <div class="wrapper">
                 <p>风力：{{content.wind_dir}} {{content.wind_sc}}级</p>
                 <p>空气质量：{{qlty}}</p>
@@ -55,7 +55,7 @@ export default {
     .content-left-top img{
         width:280px;
         height:280px;
-        margin-left:30px;
+        margin-left:50px;
     }
     .content-left-icon{
         margin-top:20px;

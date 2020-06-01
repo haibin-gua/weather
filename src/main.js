@@ -26,8 +26,6 @@ Vue.prototype.$echarts = echarts
 
 Vue.use(Vant);
 
-//导入rem的js，动态的设置了，不同屏幕的html根元素的font-size
-//1rem根据当前屏幕html font-size进行转换
 import 'lib-flexible'
 
 Vue.config.productionTip = false

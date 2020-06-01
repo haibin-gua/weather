@@ -1,7 +1,7 @@
 <template>
     <div class="future">
         <div class="future-top">未来7天天气情况</div>
-        <div id="main" style="width: 800px;height:420px;"></div>
+        <div id="main" style="width:800px;height:400px;"></div>
     </div>    
 </template>
 
@@ -69,7 +69,7 @@ export default {
 <style scoped>
     .future{
         width:100%;
-        height:450px;
+        height:470px;
         margin-top:40px;
     }
     .future-top{
